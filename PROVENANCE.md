@@ -1,5 +1,13 @@
 # Provenance
 
+The 1sm23 fork started from `alex61194/twin-embers` commit
+`ec10478` and adds original FTP installation tooling and read-only ROM diagnostics
+with OpenAI Codex assistance. FTP uses Python's standard `ftplib`; its protocol
+integration tests use pyftpdlib 2.1.0 as a development-only server. The known
+Chinese ROM is identified by hashes and compared locally against structural
+recipes; no ROM bytes, extracted game assets or generated packs enter the fork.
+Chinese native gameplay is not claimed or enabled by these diagnostic changes.
+
 Technical source: `alex61194/pokemon-firered-3ds-clean` at
 `96f95e015af9f5f38e4a8aefca7cab29a78b030d`, inspected read-only through pinned
 file/blob requests. Selected source bytes were checked against their Git blob

@@ -27,9 +27,13 @@ jobs:
         run: |
           python -m pip install --no-deps ./builder
           python -m pip install pyinstaller==6.16.0
+          python -m pip install pyftpdlib==2.1.0
       - name: Check GUI operations with synthetic data only
         shell: pwsh
         run: python -m unittest discover -s builder/tests -p 'test_gui*.py' -v
+      - name: Check FTP transactions and a real localhost server
+        shell: pwsh
+        run: python -m unittest discover -s builder/tests -p 'test_ftp*.py' -v
       - name: Build portable EXE without game ROM, data or pack
         shell: pwsh
         run: |

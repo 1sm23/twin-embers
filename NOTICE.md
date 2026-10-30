@@ -1,5 +1,11 @@
 # Third-party notices
 
+The 1sm23 fork adds an original Python-standard-library FTP client, a Tk wireless
+installer dialog, ROM compatibility diagnostics, synthetic tests and documentation,
+written with OpenAI Codex assistance in 2026. These original additions are under
+the port MIT terms; inherited authorship and third-party scope below are retained.
+pyftpdlib is used only as an optional development test server and is not packaged.
+
 Each component retains its own terms. No license for a game, ROM or decompilation
 is inferred from the port's MIT license. No executable or third-party runtime is shipped.
 

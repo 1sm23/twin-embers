@@ -1,9 +1,7 @@
 """Twin Embers data-pack builder — offline graphical frontend (stdlib Tkinter).
 
-No game ROM, pack, icon or SDK component is bundled. The network is used only
-when the player ticks the optional HeartGold battle sprites. The only write
-action uses gui_service.build_private_pack and requires consent before
-replacing a pre-existing output file.
+No game ROM, pack, icon or SDK component is bundled. Pack building is local;
+optional HeartGold downloads and an explicit FTP installer use the network.
 """
 from __future__ import annotations
 
@@ -31,7 +29,7 @@ class BuilderWindow(tk.Tk):
 
         self.rom_path = tk.StringVar()
         self.pack_path = tk.StringVar()
-        self.status = tk.StringVar(value="Ready. All files stay on this computer.")
+        self.status = tk.StringVar(value="Ready. Build locally or install wirelessly over FTP.")
         self.details = tk.StringVar(value="Choose your own supported FireRed ROM to begin.")
         self.phase = tk.StringVar(value="READY")
         self.gen4 = tk.BooleanVar(value=False)
@@ -131,6 +129,9 @@ class BuilderWindow(tk.Tk):
                                         command=self._request_cancel, state="disabled",
                                         style="Small.TButton")
         self.cancel_button.pack(side="left", padx=(12, 0))
+        self.ftp_button = ttk.Button(buttons, text="无线安装 (FTP)…",
+                                     command=self._open_ftp, style="Small.TButton")
+        self.ftp_button.pack(side="left", padx=(12, 0))
 
         self.indicator = ttk.Progressbar(build_card, mode="indeterminate",
                                          style="Ember.Horizontal.TProgressbar")
@@ -148,7 +149,7 @@ class BuilderWindow(tk.Tk):
         self.details_label.grid(row=5, column=0, sticky="ew", pady=(5, 0))
         build_card.bind("<Configure>", self._wrap_status)
 
-        ttk.Label(body, text="Local processing only. Nothing is uploaded.\n"
+        ttk.Label(body, text="Building is local. Nothing is uploaded unless you use Wireless install (FTP).\n"
                   "No game files included. Creates a data pack, not a 3DS game executable.",
                   style="Footer.TLabel", wraplength=700).grid(
                       row=3, column=0, sticky="w", pady=(5, 0))
@@ -213,12 +214,17 @@ class BuilderWindow(tk.Tk):
             self.pack_path.set(str(Path(root) / "3ds" / "twinembers" / "twinembers.pak"))
             self._create_dirs = True
 
+    def _open_ftp(self) -> None:
+        if not self._busy:
+            from .ftp_gui import FTPWindow
+            FTPWindow(self)
+
     def _set_busy(self, busy: bool) -> None:
         self._busy = busy
         state = "disabled" if busy else "normal"
         for widget in (self.rom_entry, self.pack_entry, self.rom_browse,
                        self.pack_browse, self.sd_browse,
-                       self.build_button, self.gen4_check):
+                       self.build_button, self.gen4_check, self.ftp_button):
             widget.configure(state=state)
         self.cancel_button.configure(state="normal" if busy else "disabled")
         if busy:
@@ -230,6 +236,7 @@ class BuilderWindow(tk.Tk):
             self.indicator.grid_remove()
 
     def _start(self, rom: str, target: str, overwrite: bool = False) -> None:
+        gen4 = self.gen4.get()
         self._cancel = threading.Event()
         self._set_busy(True)
         self.status.set("Preparing local operation…")
@@ -240,7 +247,7 @@ class BuilderWindow(tk.Tk):
                 report = build_private_pack(
                     rom, target, overwrite=overwrite,
                     create_directories=self._create_dirs,
-                    gen4=self.gen4.get(),
+                    gen4=gen4,
                     on_progress=lambda step, msg: self._events.put(("progress", step, msg)),
                     cancel=self._cancel)
                 self._events.put(("ok_build", report))

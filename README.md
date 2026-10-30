@@ -1,3 +1,8 @@
+> **1sm23 fork:** adds a Windows/CLI [wireless FTP installer](docs/FTP-INSTALL.md).
+> The supplied Simplified Chinese v20230724 ROM is identified and diagnosed,
+> but its native text/font/code port is **not implemented yet**; see
+> [Chinese ROM status](docs/CHINESE-ROM.md). Native gameplay still requires the original US Rev 0 ROM.
+
 <h1 align="center"><img src="docs/media/twin-embers-banner.png" width="600" alt="Twin Embers"></h1>
 
 <p align="center"><sub>Logo by <b>@xsh3d0r_</b> (Discord)</sub></p>

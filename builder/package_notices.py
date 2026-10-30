@@ -79,18 +79,25 @@ def versions() -> dict[str, str]:
     return found
 
 
-def copy_licenses(out: Path) -> list[str]:
+def copy_licenses(out: Path, openssl_license: Path | None = None) -> list[str]:
     lic = out / 'licenses'
     lic.mkdir(parents=True, exist_ok=True)
     copied = []
     python_license = Path(sys.base_prefix) / 'LICENSE.txt'
     text = python_license.read_text(encoding='utf-8', errors='replace')
     for section, pattern in PYTHON_LICENSE_SECTIONS.items():
-        if not re.search(pattern, text):
+        source_text = (openssl_license.read_text(encoding='utf-8')
+                       if section == 'openssl' and openssl_license else text)
+        if not re.search(pattern, source_text):
             raise ValueError(f'{python_license} lacks the {section} section')
     name = f'Python-{sys.version.split()[0]}-LICENSE.txt'
     shutil.copyfile(python_license, lic / name)
     copied.append(name)
+    if openssl_license:
+        import ssl
+        name = f'OpenSSL-{ssl.OPENSSL_VERSION.split()[1]}-LICENSE.txt'
+        shutil.copyfile(openssl_license, lic / name)
+        copied.append(name)
     for sub in ('tcl8.6', 'tk8.6'):
         terms = Path(sys.base_prefix) / 'tcl' / sub / 'license.terms'
         if terms.is_file():
@@ -115,6 +122,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--exe', type=Path, required=True)
     ap.add_argument('--out', type=Path, required=True)
+    ap.add_argument('--openssl-license', type=Path,
+                    help='exact-version OpenSSL LICENSE when Python ships only its older OpenSSL notice')
     args = ap.parse_args()
 
     names = bundled_names(args.exe)
@@ -126,7 +135,7 @@ def main() -> int:
         raise ValueError(f'The executable does not bundle {expected_dll}; run with the interpreter that built it')
 
     args.out.mkdir(parents=True, exist_ok=True)
-    copied = copy_licenses(args.out)
+    copied = copy_licenses(args.out, args.openssl_license)
     digest = hashlib.sha256(args.exe.read_bytes()).hexdigest()
     header = (ROOT / 'builder/Windows-GUI-THIRD-PARTY.txt').read_text(encoding='utf-8').rstrip()
     lines = [header, '', f'Executable: {args.exe.name}  SHA-256 {digest}', '', 'Exact versions in this build:']

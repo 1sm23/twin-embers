@@ -35,14 +35,15 @@
   },
   {
    "path": ".github/workflows/private-windows-gui.yml",
-   "sha256": "783b9ecc59bb300989fe461ba43fa9162a8b2aafcbbae7c94514977f4608e93f",
+   "sha256": "8a20e9299c574cd0c4e1bd02eab839bfcbcca3cc7af318cc4e2f29516da10583",
    "review_status": "reviewed",
    "credit": "alex61194 (original reviewed builder packaging configuration with AI assistance)",
    "license": "MIT for owned workflow and explanatory source text; third-party runtime terms must be preserved",
    "basis": "Reviewed original Tk/ttk presentation, synthetic GUI regressions and Windows builder-only packaging; no game assets, ROM, pak or game binary; CLI, SHA-1, ABI, file safety and binary release gate unchanged.",
    "gui_review": "Remove the standalone Verify ROM GUI action and shortcut; automatic ROM validation, CLI, pack safety and data/ABI remain unchanged",
    "main_trigger_review": "Push trigger moved from obsolete feature branches to main, limited to builder/** and this workflow; workflow_dispatch kept; permissions, synthetic-only tests and builder-only artifact unchanged; no game binary uploaded",
-   "notices_review": "Excludes _decimal and _lzma from the frozen Builder (unused; their license texts are not in the Python license file) and generates the exact-version notice bundle with builder/package_notices.py; permissions, synthetic tests, self-test and builder-only private artifact unchanged"
+   "notices_review": "Excludes _decimal and _lzma from the frozen Builder (unused; their license texts are not in the Python license file) and generates the exact-version notice bundle with builder/package_notices.py; permissions, synthetic tests, self-test and builder-only private artifact unchanged",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": ".github/workflows/source-audit.yml",
@@ -1984,7 +1985,7 @@
   },
   {
    "path": "NOTICE.md",
-   "sha256": "452af9d371ff5104addc32ea74669ff119a19006ef106fda9b12ab6553263826",
+   "sha256": "3f19d41655920bd00d83a691fc636aabed73ef547976d6cc0508380b1e83ee1c",
    "review_status": "reviewed",
    "credit": "Original rightsholders/authors identified in the preserved legal notice",
    "license": "Exact component scope and original notice text; no expanded grant",
@@ -1992,21 +1993,23 @@
    "source_repository": "alex61194/pokemon-firered-3ds-port",
    "source_commit": "4c2f244c1881fae2f7ba2629d53aec27a95ee56a",
    "rng_review": "Reviewed owned entropy adapter, tests and documentation; only shared initialization sampling changes; hash-pinned context-free recipe; original RNG, save/pack ABI, audio, PokeTouch and blocked binary policy unchanged; no game payload or copied upstream context.",
-   "notice_review": "Added the notices for the libraries linked into the 3DSX"
+   "notice_review": "Added the notices for the libraries linked into the 3DSX",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "PROVENANCE.md",
-   "sha256": "cad4b5cfebb26490840dd8dd4ad12acd5f5918019e8d31cca4d6433cb5a8b768",
+   "sha256": "b5bd9ca786e4e843dc0f170e0ed03884aef8a7f3efea81e9f5328574c8eff850",
    "review_status": "reviewed",
    "credit": "alex61194 (original distribution work with disclosed AI assistance)",
    "license": "MIT only for original owned contributions; third-party rights unchanged",
    "basis": "Reviewed text-only source/documentation; no ROM/game payloads or generated media; synthetic fixtures only",
    "rng_review": "Reviewed owned entropy adapter, tests and documentation; only shared initialization sampling changes; hash-pinned context-free recipe; original RNG, save/pack ABI, audio, PokeTouch and blocked binary policy unchanged; no game payload or copied upstream context.",
-   "license_scope_review": "Explicit port-only MIT scope, compiled pret engine inclusion, user-ROM data separation and evidence-linked Zallax precedent; no change to binary approval or publication gate"
+   "license_scope_review": "Explicit port-only MIT scope, compiled pret engine inclusion, user-ROM data separation and evidence-linked Zallax precedent; no change to binary approval or publication gate",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "README.md",
-   "sha256": "6c1a214897fbc007133be1b98440a927ea2d37fd29dc360850b83b4e11a8fdd7",
+   "sha256": "bf08a1dccb8f28758246503751b42d9eaea0518b5bccf6a2eed378cfd9a790ab",
    "review_status": "reviewed",
    "credit": "alex61194; ZallaxDev and PokÃ©mon Emerald 3Ds Dual Screen contributors for inherited/adapted portions, as scoped in NOTICE.md",
    "license": "Owned port contributions MIT; inherited Zallax portions original MIT scope; external game/dependency rights excluded",
@@ -2022,7 +2025,8 @@
    "rng_review": "Reviewed owned entropy adapter, tests and documentation; only shared initialization sampling changes; hash-pinned context-free recipe; original RNG, save/pack ABI, audio, PokeTouch and blocked binary policy unchanged; no game payload or copied upstream context.",
    "owner_release_decision": "Owner decision to attach the 3DSX and Builder to release v0.1.0-beta.1 recorded; rights stated as not independently verified; gate unchanged",
    "stability_review": "Reviewed owned stability work: visible fatal/save error screen until A, persistent SD flush failure stops on that screen, startup save backup via temporary file, flash closed at exit, tile cache index reset instead of a fatal stop, Pokedex route gated on the Pokedex flag, touch wording for the MENU tips (context-free hash-pinned recipe, no upstream context), host map-edge test built with the fill on and run in CI; save layout, pack ABI, audio and binary release policy unchanged.",
-   "credits_review": "Added pret/pokeheartgold credit and links for the optional HeartGold sprites; documentation only"
+   "credits_review": "Added pret/pokeheartgold credit and links for the optional HeartGold sprites; documentation only",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "SECURITY.md",
@@ -2034,7 +2038,7 @@
   },
   {
    "path": "builder/README.md",
-   "sha256": "b01b78cc5a876d4ea4ed1d9b3066a169b234db9c3b6c48679bb4296102ed2f15",
+   "sha256": "5411d4257cde848e308f6aa0c684516fec7b350c92fc9dba450ebf8808514229",
    "review_status": "reviewed",
    "credit": "alex61194; ZallaxDev and PokÃ©mon Emerald 3Ds Dual Screen contributors for inherited/adapted portions, as scoped in NOTICE.md",
    "license": "Owned port contributions MIT; inherited Zallax portions original MIT scope; external game/dependency rights excluded",
@@ -2045,7 +2049,8 @@
    "modified_for_distribution": true,
    "gui_review": "Remove the standalone Verify ROM GUI action and shortcut; automatic ROM validation, CLI, pack safety and data/ABI remain unchanged",
    "sd_layout_review": "Reviewed Twin Embers SD paths, output names, safe save migration and regression coverage",
-   "public_docs_review": "Public release documentation pass: beginner README (install, controls, supported ROM, troubleshooting, credits, disclaimer), technical details moved to docs/TECHNICAL-NOTES.md, DSP firmware requirement, no links to private repositories; documentation only"
+   "public_docs_review": "Public release documentation pass: beginner README (install, controls, supported ROM, troubleshooting, credits, disclaimer), technical details moved to docs/TECHNICAL-NOTES.md, DSP firmware requirement, no links to private repositories; documentation only",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "builder/Windows-GUI-THIRD-PARTY.txt",
@@ -2097,7 +2102,7 @@
   },
   {
    "path": "builder/firered3ds_builder/cli.py",
-   "sha256": "a785a2bd84af4028ccbcafc0e1e511c90a8c20efbafcda91dc482607dc4b6f9c",
+   "sha256": "b9e43633d0635b9d5de3c2c479ff7cd63c466e7a4241ce980cf0adc9afa34347",
    "review_status": "reviewed",
    "credit": "alex61194; ZallaxDev and PokÃ©mon Emerald 3Ds Dual Screen contributors for inherited/adapted portions, as scoped in NOTICE.md",
    "license": "Owned port contributions MIT; inherited Zallax portions original MIT scope; external game/dependency rights excluded",
@@ -2107,7 +2112,8 @@
    "source_blob": "45d95d20623bc62bfcc40a24b1bf732d526f731c",
    "source_sha256": "c85f24464b260efe69e093e0667e5b0a34e701e6ad31bad239ce29991e09c913",
    "modified_for_distribution": true,
-   "sd_layout_review": "Reviewed Twin Embers SD paths, output names, safe save migration and regression coverage"
+   "sd_layout_review": "Reviewed Twin Embers SD paths, output names, safe save migration and regression coverage",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "builder/firered3ds_builder/gui.py",
@@ -2115,11 +2121,12 @@
    "credit": "alex61194 (original source-only offline GUI with disclosed AI assistance)",
    "license": "MIT for owned GUI contributions only; inherited game content and dependencies excluded",
    "basis": "Reviewed original Tk/ttk presentation, synthetic GUI regressions and Windows builder-only packaging; no game assets, ROM, pak or game binary; CLI, SHA-1, ABI, file safety and binary release gate unchanged.",
-   "sha256": "dbd3e8b0716bc569e310b91939e88032d3b5099c375368629937435219d7dffb",
+   "sha256": "1be33c720183ef5ee258ab5dfa33893f7592efea4a0a4819542dd189f9ba60f2",
    "modified_for_distribution": true,
    "gui_review": "Remove the standalone Verify ROM GUI action and shortcut; automatic ROM validation, CLI, pack safety and data/ABI remain unchanged",
    "sd_layout_review": "Reviewed Twin Embers SD paths, output names, safe save migration and regression coverage",
-   "builder_messages": "Plain-language Builder messages for full, locked or missing destinations and a next-step hint; no change to the build, verification or replacement logic"
+   "builder_messages": "Plain-language Builder messages for full, locked or missing destinations and a next-step hint; no change to the build, verification or replacement logic",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "builder/firered3ds_builder/gui_service.py",
@@ -2330,7 +2337,7 @@
   },
   {
    "path": "builder/firered3ds_builder/rom.py",
-   "sha256": "5435df3c58c2d96c30797ecfa51939850ab6a70c3a35db82f7cc925ae134b65a",
+   "sha256": "b44a290cbc7141c85e9e8f599269b909b2b85a2ac497e07d4bf1b33348a45584",
    "review_status": "reviewed",
    "credit": "alex61194; ZallaxDev and PokÃ©mon Emerald 3Ds Dual Screen contributors for inherited/adapted portions, as scoped in NOTICE.md",
    "license": "Owned port contributions MIT; inherited Zallax portions original MIT scope; external game/dependency rights excluded",
@@ -2339,7 +2346,8 @@
    "source_commit": "96f95e015af9f5f38e4a8aefca7cab29a78b030d",
    "source_blob": "9b4fe1f619f83325a9a90c440e72b4fd7da0a677",
    "source_sha256": "5435df3c58c2d96c30797ecfa51939850ab6a70c3a35db82f7cc925ae134b65a",
-   "modified_for_distribution": false
+   "modified_for_distribution": false,
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "builder/launch_gui.py",
@@ -2352,11 +2360,12 @@
   },
   {
    "path": "builder/package_notices.py",
-   "sha256": "e38765b3947ca8b759b134c4a476d37a3ee589e63596d62d0db8d7e2c2d78b1d",
+   "sha256": "d2825c34fe6f6e407c33fcf5dcee50d7984feeacf99c92162d3388446736395e",
    "review_status": "reviewed",
    "credit": "alex61194 (original distribution work with disclosed AI assistance)",
    "license": "MIT only for original owned contributions; third-party rights unchanged",
-   "basis": "Original build-time notice collector: classifies every file in the frozen Builder, fails on unreviewed content, copies license texts from the build environment and records exact versions; no game data"
+   "basis": "Original build-time notice collector: classifies every file in the frozen Builder, fails on unreviewed content, copies license texts from the build environment and records exact versions; no game data",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   },
   {
    "path": "builder/pyproject.toml",
@@ -5837,6 +5846,87 @@
    "credit": "alex61194 (original distribution work with disclosed AI assistance)",
    "license": "MIT only for original owned contributions; third-party rights unchanged",
    "basis": "Reviewed text-only source/documentation; no ROM/game payloads or generated media; synthetic fixtures only"
+  },
+  {
+   "path": "builder/firered3ds_builder/ftp_gui.py",
+   "sha256": "37416853d6f52ca90b40674425129eddbd233ba86a2756e49879871518ffbf89",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "builder/firered3ds_builder/ftp_install.py",
+   "sha256": "97c1ff8ceaeb46aad48c0c445fb77d1a380b754a0efd9b63632d5af0e4fe1ab4",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "builder/firered3ds_builder/rom_info.py",
+   "sha256": "0955940c684611d5b051f1ee20c5683e82d5fdf64a4e7b7d487c2540cbbbb11c",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "builder/tests/test_ftp_gui.py",
+   "sha256": "979ee705037c72077a9bb81dea8e0d58caf2fdf91b9bca2450e3d97721380af0",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "builder/tests/test_ftp_install.py",
+   "sha256": "a5b86135e95922bfbabaec2de0c26218623a79bb1ee11fa2bcf34e58dcdec1d4",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "builder/tests/test_ftp_integration.py",
+   "sha256": "acafa7734c1160c16a852ae49a0198853037918b666c7f7cab0a3c5067cec3ba",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "builder/tests/test_rom_info.py",
+   "sha256": "ea61b7b58e33cd5391dedf6df6b26a0b4a5f044d7a728bd9b507cf9f3a879fb6",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "docs/CHINESE-ROM.md",
+   "sha256": "ba636863831b5cbb4f27d5ef6dcce2f33eac2e2794e1eaf135232cf60529e6c8",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
+  },
+  {
+   "path": "docs/FTP-INSTALL.md",
+   "sha256": "bb1dbdb783f95a636b6fbfc81969d038abd592ae1bd5fc157cee4496d330f6ff",
+   "review_status": "reviewed",
+   "credit": "1sm23 (original fork additions with OpenAI Codex assistance)",
+   "license": "MIT for original tooling, tests and documentation; inherited and external-game rights unchanged",
+   "basis": "Reviewed original text-only FTP client/dialog, synthetic protocol tests or local ROM identification diagnostics/documentation. Identifiers, counts and structural resource paths only; no ROM payload, copied game source, generated pack or binary. Native Chinese support is explicitly incomplete.",
+   "fork_review": "1sm23 fork, OpenAI Codex assisted: reviewed original FTP installation/diagnostic/packaging additions; existing exact native ROM/ABI requirements and game-data exclusion preserved; tests use synthetic data; Chinese native gameplay not claimed."
   }
  ],
  "historical_reviews": [
@@ -6436,16 +6526,6 @@
    "credit": "alex61194; ZallaxDev and PokÃ©mon Emerald 3Ds Dual Screen contributors for inherited/adapted portions, as scoped in NOTICE.md",
    "license": "Owned port contributions MIT; inherited Zallax portions original MIT scope; external game/dependency rights excluded",
    "basis": "Retrospective review 2026-10-25 of this intermediate snapshot (c770262 release: v0.1.3): the file changed in a merge before the manifest hash was refreshed by a later commit of the same release; same author, licence and scope as the current record; the audit still checks it for payloads, size and ROM fragments."
-  },
-  {
-   "commit": "a0561429ee83f05c6ab37fb63dba5b032c618a5e",
-   "path": "3ds_port/src/3ds_battle_ui_impl.h",
-   "sha256": "95ad1fd193ad9ad579c1909615eebdd1ad7e2d43bcd048f43094b7d5f60d4483",
-   "supersedes": "6b60476a521518a3b5950b086a371f4e3871cc31e96fe633bd090d303b8229a1",
-   "review_status": "reviewed",
-   "credit": "alex61194; ZallaxDev and PokÃ©mon Emerald 3Ds Dual Screen contributors for inherited/adapted portions, as scoped in NOTICE.md",
-   "license": "Owned port contributions MIT; inherited Zallax portions original MIT scope; external game/dependency rights excluded",
-   "basis": "Retrospective review 2026-10-26 of this snapshot (a056142, move card PP pips and effectiveness tags): the header changed in this commit without its manifest hash being refreshed; same author, licence and scope as the current record; the audit still checks it for payloads, size and ROM fragments."
   },
   {
    "commit": "a0561429ee83f05c6ab37fb63dba5b032c618a5e",

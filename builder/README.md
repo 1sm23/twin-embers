@@ -1,5 +1,11 @@
 # Twin Embers data Builder
 
+This fork adds **无线安装 (FTP)…** to the Windows GUI and an `upload` CLI command.
+See [wireless setup](../docs/FTP-INSTALL.md). Building remains local; only the
+files explicitly selected for FTP installation are sent to your 3DS.
+The known Chinese v20230724 ROM can be diagnosed with `inspect-rom --compare`,
+but it is not yet a supported native pack input; see [status](../docs/CHINESE-ROM.md).
+
 User-owned ROM reconstruction, offline unless you tick the optional HeartGold
 battle sprites (below). Python 3.11+ is required. The GUI uses only Python's
 standard library: no SDK, online account, telemetry or game content is included.
